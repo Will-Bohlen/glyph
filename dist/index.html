@@ -1,37 +1,23 @@
-<!--
- Basic example
--->
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <script src="../../dist-dev/mindar-image.js" type="module"></script> -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/16/Stats.min.js"></script>
-   
-    <style>body {
-  margin: 0;
-}
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
 
-.example-container {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-}
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/dev/aframe/build/aframe-ar.js"></script>
+    <script src="/index.9578e348.js" defer=""></script>
+    <body style="margin: 0; overflow: hidden">
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded="" arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
-</style>
-  </head>
+        <a-marker type="barcode" value="5" size="0.3">
+            <a-box position="0 0 0" color="yellow"></a-box>
+        </a-marker>
 
-  <body>
-    <div class="example-container">
-      <a-scene mindar-image="imageTargetSrc: ./rubiks.mind;" embedded="" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-        <a-entity mindar-image-target="targetIndex: 0">
-          <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-        </a-entity>
-      </a-scene>
-    </div>
-  <script src="/ar-concerto.59712999.js"></script></body>
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+        <a-entity camera=""></a-entity>
+        </a-scene>
+    </body>
 </html>
