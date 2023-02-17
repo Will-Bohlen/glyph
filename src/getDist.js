@@ -1,4 +1,4 @@
-import { MonoSynth } from "../node_modules/tone/build/Tone.js"
+import * as Tone from "../node_modules/tone/build/Tone.js"
 
 // import this on your HTML
 window.addEventListener('load', () => {
@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
     const marker = document.querySelector('a-marker');
     let check;
 
-    const synth = new MonoSynth().toDestination();
+    const synth = new Tone.MonoSynth().toDestination();
     
     synth.set({
         envelope : {
