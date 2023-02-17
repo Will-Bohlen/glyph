@@ -4,9 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "parcel --port 8080",
-    "start": "parcel ./*.html",
-    "predeploy": "rm -rf dist && parcel build ./*.html --public-url https://github.com/Will-Bohlen/ar-concerto",
-    "deploy": "gh-pages -d dist"
+    "start": "parcel ./*.html"
   },
   "keywords": [],
   "author": "",
