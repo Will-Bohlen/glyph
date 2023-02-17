@@ -18,6 +18,7 @@
     "tone": "^14.8.49"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
     "parcel": "^2.8.3"
   }
 }

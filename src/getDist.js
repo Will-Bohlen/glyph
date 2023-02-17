@@ -1,4 +1,4 @@
-import * as Tone from "../node_modules/tone/build/Tone.js"
+const Tone = require("../node_modules/tone/build/Tone.js");
 
 // import this on your HTML
 window.addEventListener('load', () => {
