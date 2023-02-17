@@ -1,6 +1,15 @@
 import * as Tone from 'tone';
 import unmute from './unmute';
 
+window.addEventListener("click", async () => {
+	await Tone.start();
+	console.log("context started");
+});
+
+window.addEventListener("touchend", async () => {
+	await Tone.start();
+	console.log("context started");
+});
 
 // import this on your HTML
 window.addEventListener('load', () => {
