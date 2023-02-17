@@ -1,4 +1,4 @@
-import * as Tone from 'tone'
+import * as Tone from '/node_modules/tone'
 
 window.addEventListener("click", async () => {
 	await Tone.start();
@@ -12,6 +12,7 @@ window.addEventListener("touchend", async () => {
 
 // import this on your HTML
 window.addEventListener('load', () => {
+
 
     const camera = document.querySelector('[camera]');
     const marker = document.querySelector('a-marker');
