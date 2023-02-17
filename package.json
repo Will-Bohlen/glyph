@@ -2,9 +2,12 @@
   "name": "ar_concerto",
   "version": "1.0.0",
   "description": "",
+  "homepage": "will-bohlen.github.io/ar-concerto",
   "scripts": {
     "dev": "parcel --port 8080",
-    "start": "parcel ./*.html"
+    "start": "parcel ./*.html",
+    "predeploy": "rm -rf dist && parcel build ./*.html --public-url https://github.com/Will-Bohlen/ar-concerto.git",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
