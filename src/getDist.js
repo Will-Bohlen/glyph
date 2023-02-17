@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
     
     // Decide on some parameters
     let allowBackgroundPlayback = false; // default false, recommended false
-    let forceIOSBehavior = false; // default false, recommended false
+    let forceIOSBehavior = true; // default false, recommended false
     // Pass it to unmute if the context exists... ie WebAudio is supported
     if (context)
     {
@@ -23,6 +23,8 @@ window.addEventListener('load', () => {
     const camera = document.querySelector('[camera]');
     const marker = document.querySelector('a-marker');
     let check;
+
+    Tone.setContext(context);
 
     const synth = new Tone.Synth({
         envelope : {
