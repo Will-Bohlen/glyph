@@ -29,6 +29,7 @@ window.addEventListener('load', () => {
             let distance = cameraPosition.distanceTo(markerPosition)
             console.log(markerPosition);
 
+            synth.context.resume();
             synth.triggerAttack("C4", Tone.now());
 
             check = setInterval(() => {
