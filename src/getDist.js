@@ -8,7 +8,9 @@ window.addEventListener('load', () => {
     const marker = document.querySelector('a-marker');
     let check;
 
-    const synth = new Tone.Synth({
+    const synth = new Tone.MonoSynth().toDestination();
+    
+    synth.set({
         envelope : {
             attack: 2,
             decay: 0,
@@ -19,7 +21,7 @@ window.addEventListener('load', () => {
             type: "sine"
         },
         volume: -20
-    }).toDestination();
+    });
 
     synth.volume.minValue = -50;
     synth.volume.maxValue = 0;
