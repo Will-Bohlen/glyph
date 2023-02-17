@@ -1,13 +1,13 @@
 import * as Tone from 'tone';
 import unmute from './unmute';
 
+
 // import this on your HTML
 window.addEventListener('load', () => {
     const camera = document.querySelector('[camera]');
     const marker = document.querySelector('a-marker');
     let check;
 
-    unmute(Tone.getContext());
 
     const synth = new Tone.Synth({
         envelope : {
@@ -51,4 +51,11 @@ window.addEventListener('load', () => {
             synth.triggerRelease();
         })
     }
+
+    
+    window.addEventListener('touchend', () => {
+        unmute(Tone.getContext());
+        unmute(synth.context);
+        synth.context.resume();
+    })
 })
