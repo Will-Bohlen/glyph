@@ -1,4 +1,4 @@
-import * as Tone from 'tone'
+import * as Tone from '../node_modules/tone'
 
 window.addEventListener("click", async () => {
 	await Tone.start();
