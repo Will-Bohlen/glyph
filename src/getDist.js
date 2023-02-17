@@ -23,9 +23,6 @@ window.addEventListener('load', () => {
         volume: -20
     });
 
-    synth.volume.minValue = -50;
-    synth.volume.maxValue = 0;
-
     if (marker) {
         marker.addEventListener('markerFound', () => {
             let cameraPosition = camera.object3D.position;
