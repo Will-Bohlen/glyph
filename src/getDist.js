@@ -1,4 +1,4 @@
-import * as Tone from '../node_modules/tone/build/Tone.js'
+import { MonoSynth } from "tone"
 
 // import this on your HTML
 window.addEventListener('load', () => {
@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
     const marker = document.querySelector('a-marker');
     let check;
 
-    const synth = new Tone.MonoSynth().toDestination();
+    const synth = new MonoSynth().toDestination();
     
     synth.set({
         envelope : {
@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
             console.log(markerPosition);
 
             synth.context.resume();
-            synth.triggerAttack("C4", Tone.now());
+            synth.triggerAttack("C4", synth.now());
 
             check = setInterval(() => {
                 cameraPosition = camera.object3D.position;
