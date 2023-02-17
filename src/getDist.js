@@ -1,4 +1,4 @@
-import { MonoSynth } from "tone"
+import { MonoSynth } from "../node_modules/tone/build/Tone.js"
 
 // import this on your HTML
 window.addEventListener('load', () => {
