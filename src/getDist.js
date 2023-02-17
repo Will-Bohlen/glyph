@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
     const marker = document.querySelector('a-marker');
     let check;
 
-    //unmute(Tone.getContext());
+    unmute(Tone.getContext());
 
     const synth = new Tone.Synth({
         envelope : {
