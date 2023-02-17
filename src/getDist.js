@@ -1,4 +1,4 @@
-import * as Tone from "tone"
+import * as Tone from "../node_modules/tone/build/Tone.js"
 
 // import this on your HTML
 window.addEventListener('load', () => {
@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
             console.log(markerPosition);
 
             synth.context.resume();
-            synth.triggerAttack("C4", synth.now());
+            synth.triggerAttack("C4", Tone.now());
 
             check = setInterval(() => {
                 cameraPosition = camera.object3D.position;
