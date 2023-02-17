@@ -1,14 +1,4 @@
-import * as Tone from '/node_modules/tone'
-
-window.addEventListener("click", async () => {
-	await Tone.start();
-	console.log("context started");
-});
-
-window.addEventListener("touchend", async () => {
-	await Tone.start();
-	console.log("context started");
-});
+import * as Tone from 'tone'
 
 // import this on your HTML
 window.addEventListener('load', () => {
