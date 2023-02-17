@@ -1,5 +1,4 @@
 import * as Tone from 'tone';
-import unmute from './unmute';
 
 window.addEventListener("click", async () => {
 	await Tone.start();
@@ -14,26 +13,10 @@ window.addEventListener("touchend", async () => {
 // import this on your HTML
 window.addEventListener('load', () => {
 
-    // Create an audio context instance if WebAudio is supported
-    let context = (window.AudioContext || window.webkitAudioContext) ?
-    new (window.AudioContext || window.webkitAudioContext)() : null;
-    
-    // Decide on some parameters
-    let allowBackgroundPlayback = false; // default false, recommended false
-    let forceIOSBehavior = true; // default false, recommended false
-    // Pass it to unmute if the context exists... ie WebAudio is supported
-    if (context)
-    {
-    // If you need to be able to disable unmute at a later time, you can use the returned handle's dispose() method
-    // if you don't need to do that (most folks won't) then you can simply ignore the return value
-    unmute(context, allowBackgroundPlayback, forceIOSBehavior);
-    }
 
     const camera = document.querySelector('[camera]');
     const marker = document.querySelector('a-marker');
     let check;
-
-    Tone.setContext(context);
 
     const synth = new Tone.Synth({
         envelope : {
