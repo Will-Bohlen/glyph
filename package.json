@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "source": "index.html",
+  "type": "module",
   "dependencies": {
     "aframe-ar": "^0.2.1-a",
     "tone": "^14.8.49"
