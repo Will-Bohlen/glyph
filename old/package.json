@@ -1,0 +1,24 @@
+{
+  "name": "ar_concerto",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "parcel --port 8080",
+    "start": "parcel ./*.html",
+    "predeploy": "rmdir /s /q dist && parcel build ./*.html --public-url https://github.com/Will-Bohlen/ar-concerto.git",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "source": "index.html",
+  "type": "module",
+  "dependencies": {
+    "aframe-ar": "^0.2.1-a",
+    "tone": "^14.8.49"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "parcel": "^2.8.3"
+  }
+}
