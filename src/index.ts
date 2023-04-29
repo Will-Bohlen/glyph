@@ -1,14 +1,14 @@
 import * as Tone from 'tone';
-//const THREEx = require(ß'@ar-js-org/ar.js/three.js/build/ar.js');
-import { threeTest} from "./threeTest";
-import * as Synth from "./synth";
-import { melodicGen } from './melodicGen';
+import * as songHandler from "./songHandler";
+import { threeHandler } from "./threeHandler";
+
 
 const document = window.document as Document;
 const playButton = document.getElementById("play-button") as HTMLButtonElement;
 const landing = document.getElementById("landing") as HTMLDivElement;
+const loading = document.getElementById("loading") as HTMLDivElement;
 
-let three = new threeTest();
+let three = new threeHandler();
 
 document.addEventListener("load", () => {
     Tone.Transport.stop();
@@ -18,27 +18,21 @@ document.addEventListener("load", () => {
 
 playButton.addEventListener("click", () => {
   if (Tone.Transport.state !== 'started') {
-    playButton.textContent = "Pause"
     Tone.start();
     Tone.Transport.start();
     three.init();
+    songHandler.init(three);
     landing.hidden = true;
-  } else {
-    playButton.textContent = "Play"
-    Tone.Transport.stop();
+    loading.hidden = false;
   }
 });
 
-const songGen = new melodicGen(Synth.humanPluck);
-const songGen2 = new melodicGen(Synth.triSynth);
-songGen.transposition = 7;
+//songGen.transposition = 7;
 
 function updateLoop() {
     window.requestAnimationFrame(() => {
-        songGen.update();
-        songGen2.update();
-        songGen.active = three.barcode7Root.visible;
-        songGen2.active = three.barcode23Root.visible;
+        if (!loading.hidden && three.initComplete) loading.hidden = true;
+        songHandler.update();
         updateLoop();
     });
 }

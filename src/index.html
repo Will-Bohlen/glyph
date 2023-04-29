@@ -1,14 +1,33 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <body>
-        <script type="module" src="index.ts"></script>
-        <div id="landing">
-            <button id="play-button">Play</button>
-            <h id="seed"></h>
-            <p>iOS users: turn off silent mode to enable sound</p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>GLYPH</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script type="module" src="index.ts"></script>
+  </head>
+  <body>
+    <div id="landing">
+        <div class="app">
+            <div class="text">
+                <h1>GLYPH</h1>
+                <h3>Instructions:</h3>
+                <ul>
+                    <li>Turn off silent mode and turn up device volume.</li>
+                    <li>This website will use your device's camera to detect GLYPHs, 
+                        which are placed throughout the room.</li>
+                    <li>As people are moving and scanning different GLYPHs, 
+                        the devices will work together to produce a song.
+                    </li>
+                </ul>
+            </div>
+            <button id="play-button">Begin</button>
         </div>
-    </body>
+    </div>
+    <div class="loading" id="loading" hidden=true><h2>Loading...</h2></div>
+  </body>
 </html>

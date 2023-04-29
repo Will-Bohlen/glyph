@@ -14,7 +14,13 @@ export const triSynth = new Tone.Synth({
 });
 const triVib = new Tone.Vibrato(4, 0.2);
 
-triSynth.chain(triVib, Tone.Destination);
+const triDelay = new Tone.PingPongDelay({
+    delayTime: "16n", 
+    feedback: 0.7,
+    wet: 0.6
+});
+
+triSynth.chain(triVib, triDelay, Tone.Destination);
 
 
 
@@ -26,7 +32,7 @@ export const humanPluck = new Tone.DuoSynth({
     voice1: {
         oscillator: {type: "square"}
     },
-    harmonicity: 4
+    harmonicity: 6
 });
 
 const humanEnv = new Tone.AmplitudeEnvelope({
@@ -58,8 +64,43 @@ const humanDelay = new Tone.PingPongDelay({
 
 humanPluck.chain(humanDelay, Tone.Destination);
 
-export const currentSynth = humanPluck;
 
 
+export const lowDrone = new Tone.MonoSynth({
+    volume: -15,
+    oscillator: { type: 'sawtooth' },
+    envelope: {
+        attack: 1,
+        release: 1
+    },
+    filter: {
+        type: "lowpass",
+        frequency: 1500,
+        Q: 10
+    }
+}).toDestination();
 
-//currentSynth.triggerAttackRelease("C5", "16n");
+const droneLFO = new Tone.LFO("0.125n", 0, 1500).start();
+droneLFO.connect(lowDrone.filter.frequency);
+
+
+export const squareChords = new Tone.PolySynth(Tone.Synth, {
+    volume: -17,
+    oscillator: { 
+        type: 'fatsquare'
+    },
+    envelope: {
+        attack: 2,
+        sustain: 1,
+        release: 4
+    }
+}).toDestination();
+
+export const triBass = new Tone.Synth({
+    volume: -8,
+    oscillator: { type: 'triangle' }
+}).toDestination();
+
+export const currentSynth = squareChords;
+
+

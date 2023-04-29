@@ -4,7 +4,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "npm run clean && parcel --port 8080",
-    "build": "parcel build"
+    "build": "npm run clean && parcel build"
   },
   "author": "",
   "license": "ISC",
